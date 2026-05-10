@@ -10,7 +10,7 @@ public class InventoryService {
     @Autowired
     private InventoryRepository inventoryRepository;
 
-    public List<InventoryModel> getAllServices() {
+    public List<Services> getAllServices() {
         return inventoryRepository.findAllByOrderByCategoryAscNameAsc();
     }
 }

@@ -7,6 +7,6 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface InventoryRepository extends JpaRepository<InventoryModel, UUID> {
-    List<InventoryModel> findAllByOrderByCategoryAscNameAsc();
+public interface InventoryRepository extends JpaRepository<Services, UUID> {
+    List<Services> findAllByOrderByCategoryAscNameAsc();
 }

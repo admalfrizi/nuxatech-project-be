@@ -13,7 +13,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-public class InventoryModel {
+public class Services {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
