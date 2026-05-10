@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:17.6
+    container_name: db_nuxatech
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=lokal26
+      - POSTGRES_DB=nuxatech-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - my-network
+
+  app:
+    build: .
+    container_name: nuxatech-be
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=nuxatech-db
+      - DB_USER=root
+      - DB_PASS=lokal26
+    networks:
+      - my-network
+    depends_on:
+      - db
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+    driver: local

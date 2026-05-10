@@ -24,7 +24,6 @@ public class Services {
 
     private String category;
 
-    // Standard statuses: UP, DOWN, UNKNOWN
     @Column(nullable = false)
     private String status = "UNKNOWN";
 

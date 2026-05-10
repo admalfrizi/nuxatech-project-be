@@ -1,4 +1,4 @@
-package org.example.nuxatechprojectbe.config.response;
+package org.example.nuxatechprojectbe.common.response;
 
 import lombok.Getter;
 import lombok.Setter;
