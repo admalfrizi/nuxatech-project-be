@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -21,10 +22,18 @@ public class HealthCheckController {
     private final HealthCheckService healthCheckService;
 
     @PostMapping("/force-check/{id}")
-    public ResponseEntity<ResponseHelper<Object>> forceCheck(@PathVariable UUID id) {
+    public ResponseEntity<ResponseHelper<Map<String, Object>>> forceCheck(@PathVariable UUID id) {
         Services targetService = inventoryService.getServiceById(id);
 
         healthCheckService.performCheck(targetService);
-        return ResponseHandler.generateResponse("Manual health check completed successfully", HttpStatus.OK, true );
+        return ResponseHandler.generateResponse(
+                Map.of(
+                        "serviceId", targetService.getId(),
+                        "newStatus", targetService.getStatus()
+                ),
+                "Manual health check completed successfully",
+                HttpStatus.OK,
+                true
+        );
     }
 }

@@ -69,7 +69,6 @@ public class HealthCheckService {
 
         inventoryService.updateServiceStatus(serviceInfo.getId(), status);
 
-        // 3. Push real-time latency metric to the UI Bar Chart
         messagingTemplate.convertAndSend("/topic/latency-stream", latency);
     }
 
