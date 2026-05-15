@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = "org.example.nuxatechprojectbe.inventory")
+@EnableJpaRepositories(basePackages = "org.example.nuxatechprojectbe")
 @EnableScheduling
 public class NuxatechProjectBeApplication {
 

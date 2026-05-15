@@ -5,16 +5,17 @@ import org.example.nuxatechprojectbe.common.response.ResponseHandler;
 import org.example.nuxatechprojectbe.common.response.ResponseHelper;
 import org.example.nuxatechprojectbe.dashboard.dto.LiveHealthStream;
 import org.example.nuxatechprojectbe.dashboard.dto.MonitorHealthStats;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/dashboard")
 @RequiredArgsConstructor
+@RequestMapping("/api/v1/dashboard")
+@CrossOrigin(origins = "*")
 public class DashboardController {
 
     private final DashboardService dashboardService;
